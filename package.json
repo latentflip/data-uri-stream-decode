@@ -1,0 +1,22 @@
+{
+  "name": "data-uri-stream-decode",
+  "version": "1.0.0",
+  "description": "Decodes streaming data-uris (`data:image/png;base64,iVBORw0KGgoAAAANSUhEUg....`) for example from file uploads, stripping the header from the stream.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/latentflip/data-uri-stream-decode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/latentflip/data-uri-stream-decode/issues"
+  },
+  "homepage": "https://github.com/latentflip/data-uri-stream-decode#readme",
+  "dependencies": {
+    "strong-data-uri": "^1.0.3"
+  }
+}
