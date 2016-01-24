@@ -16,6 +16,9 @@
     "url": "git+https://github.com/latentflip/data-uri-stream-decode.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/"
+  },
+  "devDependencies": {
+    "tape": "^4.4.0"
   }
 }
