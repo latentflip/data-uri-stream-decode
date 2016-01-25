@@ -12,11 +12,11 @@ var decodeDataUri = require('data-uri-stream-decode');
 
 var stream;// = some stream containing a data uri like: `data:image/png;base64,iVBORw0KGgoAAAANSUhEUg....`
 
-stream.pipe(
-    decodeDataUri().on('header', function (header, dataStream) {
+stream.pipe(decodeDataUri())
+      .on('header', function (header, dataStream) {
         // header will be:
         // - mimetype: image/png
-        // - mediatype: image/png;charset... (if relevant
+        // - mediatype: image/png;charset... (if relevant)
         // - base64: true
 
         // dataStream will be a byte stream of the remaining bytes
@@ -26,6 +26,5 @@ stream.pipe(
         var outputFile = fs.createWriteStream(__dirname + '/outputfile.' + ext);
 
         dataStream.pipe(base64.decode()).pipe(outputFile);
-    })
-);
+      })
 ```

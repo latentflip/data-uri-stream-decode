@@ -29,11 +29,20 @@ test('handles valid image', function (t) {
   var dataUriStream = stringToStream(dataUri, 4);
 
   dataUriStream.pipe(decode().on('header', function (header, imageStream) {
-    console.log('here');
     t.equal(header.mediatype, 'image/png');
     t.ok(header.base64);
     t.end();
   }));
+});
+
+test('handles valid image', function (t) {
+  var dataUri = fs.readFileSync(__dirname + '/fixtures/chrome.base64.txt').toString();
+  var dataUriStream = stringToStream(dataUri, 4);
+
+  dataUriStream.pipe(decode()).on('header', function (header, imageStream) {
+    t.equal(header.mediatype, 'image/png');
+    t.ok(header.base64);
+  }).on('finish', () => t.end());
 });
 
 test('errors if not valid data uri with a comma', function (t) {
