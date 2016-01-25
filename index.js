@@ -18,8 +18,10 @@ inherits(DataUriDecode, Transform);
 
 DataUriDecode.prototype._flush = function (done) {
   if (!this.headerEmitted) {
-    done(new Error('Invalid data-uri'))
+    return done(new Error('Invalid data-uri'))
   }
+
+  done();
 };
 
 DataUriDecode.prototype._transform = function (chunk, encoding, done) {
